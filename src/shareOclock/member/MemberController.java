@@ -195,7 +195,7 @@ public class MemberController extends HttpServlet {
 				mb_pw = "naverKakao";
 			}
 			System.out.println("naverKakao"+mb_pw);
-			MemberDTO dto = new MemberDTO(mb_email, mb_pw, mb_name, mb_nickname, mb_group, mb_phone, "A");
+			MemberDTO dto = new MemberDTO(mb_email, mb_pw, mb_name, mb_nickname, mb_group, mb_phone, "M");
 			int result = 0;
 			try {
 				result = MemberDAO.getInstance().insert(dto);

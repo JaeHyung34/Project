@@ -173,24 +173,24 @@ public class MemberDAO {
 			}
 		}
 	
-	// 멤버테이블 목록 조회(블랙에 없는 회원만 조회)
-		public List<MemberDTO> searchAllMemberView()throws Exception{
-			String sql = "select mb_email, mb_name from tb_member minus select bl_email, bl_name from tb_blacklist";
-			try(
-					Connection con = this.getConnection();
-					PreparedStatement pstmt = con.prepareStatement(sql);
-					ResultSet rs = pstmt.executeQuery();
-					){
-				List<MemberDTO> list = new ArrayList<MemberDTO>();
-				while(rs.next()) {
-					String email = rs.getString("mb_email");
-					String name = rs.getString("mb_name");
-					MemberDTO dto = new MemberDTO(email, null, name, null,null,null,null);
-					list.add(dto);
-				}
-				return list;
-			}
-		}
+		// 멤버테이블 목록 조회(블랙에 없는 회원만 조회)
+	      public List<MemberDTO> searchAllMemberView()throws Exception{
+	         String sql = "select mb_email, mb_name from tb_member where mb_check != 'A' minus select bl_email, bl_name from tb_blacklist";
+	         try(
+	               Connection con = this.getConnection();
+	               PreparedStatement pstmt = con.prepareStatement(sql);
+	               ResultSet rs = pstmt.executeQuery();
+	               ){
+	            List<MemberDTO> list = new ArrayList<MemberDTO>();
+	            while(rs.next()) {
+	               String email = rs.getString("mb_email");
+	               String name = rs.getString("mb_name");
+	               MemberDTO dto = new MemberDTO(email, null, name, null,null,null,null);
+	               list.add(dto);
+	            }
+	            return list;
+	         }
+	      }
 	
 		// 멤버 아이디 클릭 시 modal 상세조회
 		public MemberDTO searchByEmailMemberView(String mb_email)throws Exception{

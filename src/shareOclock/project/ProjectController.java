@@ -55,6 +55,7 @@ public class ProjectController extends HttpServlet {
                int count = dao.getCountBySeq(seqList.get(i));
                System.out.println(count);
                List<MyProjectDTO> myProject = ProjectDAO.getInstance().getProjectBySeq(seqList.get(i));
+               System.out.println(myProject.size());
                if(myProject != null) {
                    System.out.println(myProject.get(0).getMyPro_title());
                    MyProjectDTO list = new MyProjectDTO(seqList.get(i), 

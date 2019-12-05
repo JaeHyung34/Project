@@ -41,7 +41,7 @@ public class ProjectDAO {
    public List<MyProjectDTO> getProjectBySeq(int seq) throws Exception{
       String sql = "select pro_seq, pro_title, m.pm_nickname, pro_contents, pro_endDate, pro_startDate "
             + "from tb_project p join tb_project_member m using(pro_seq) "
-            + "where pro_seq=? and m.pm_check ='H'";
+            + "where pro_seq=?";
       try(Connection con = Configuration.dbs.getConnection();
             PreparedStatement pstat = con.prepareStatement(sql);){
          pstat.setInt(1, seq);

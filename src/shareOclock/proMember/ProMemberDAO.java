@@ -220,8 +220,9 @@ public class ProMemberDAO {
 			pstat.setString(4, pm_name);
 			pstat.setString(5, pm_email);
 			pstat.setInt(6, pro_seq);
-
 			int result = pstat.executeUpdate();
+			System.out.println("       사ㄹㅈ     :  " + result);
+
 			con.commit();
 			return result;			
 		}

@@ -77,7 +77,7 @@ public class LoginController extends HttpServlet {
 					result = MemberDAO.getInstance().getLogin(email, Utils.encrpyt(pw));
 					if(result != null) {
 						System.out.println("로그인성공??");
-						if(result.getMb_check().equals("M")) {
+						if(result.getMb_check().equals("A")) {
 							request.getSession().setAttribute("ManagerInfo", result.getMb_nickname()); 
 
 						}else {

@@ -40,27 +40,30 @@ public class FilesDAO {
 			return result;
 		}
 	}
-	public List<FilesDTO> getAllFiles() throws Exception{
-		String sql = "select * from tb_file";
-		try(
-				Connection con = Configuration.dbs.getConnection();
-				PreparedStatement pstat = con.prepareStatement(sql);
-				ResultSet rs = pstat.executeQuery();
-				){
-			List<FilesDTO> list = new ArrayList<>();
-			while(rs.next()) {
-				int f_seq = rs.getInt("f_seq");
-				String file_name = rs.getString("file_name");
-				String original_file_name = rs.getString("original_file_name");
-				Timestamp f_writeDate = rs.getTimestamp("f_writeDate");
-				String f_writer = rs.getString("f_writer");
-				int f_downloadCnt = rs.getInt("f_downloadCnt");
-				int pro_seq = rs.getInt("pro_seq");
-				FilesDTO dto = new FilesDTO(f_seq, file_name, original_file_name, f_writeDate, f_writer, f_downloadCnt , pro_seq);
-				list.add(dto);
-			}
-			return list;
-		}
+	public List<FilesDTO> getAllFiles(int pro_seq) throws Exception{
+	      String sql = "select * from tb_file where pro_seq = ?";
+	      try(
+	            Connection con = Configuration.dbs.getConnection();
+	            PreparedStatement pstat = con.prepareStatement(sql);
+	            ){pstat.setInt(1, pro_seq);
+	      try(
+	            ResultSet rs = pstat.executeQuery();
+	            ){
+	         List<FilesDTO> list = new ArrayList<>();
+	         while(rs.next()) {
+	            int f_seq = rs.getInt("f_seq");
+	            String file_name = rs.getString("file_name");
+	            String original_file_name = rs.getString("original_file_name");
+	            Timestamp f_writeDate = rs.getTimestamp("f_writeDate");
+	            String f_writer = rs.getString("f_writer");
+	            int f_downloadCnt = rs.getInt("f_downloadCnt");
+	            int pro_seq1 = rs.getInt("pro_seq");
+	            FilesDTO dto = new FilesDTO(f_seq, file_name, original_file_name, f_writeDate, f_writer, f_downloadCnt , pro_seq1);
+	            list.add(dto);
+	         }
+	         return list;
+	      }
+	   }
 	}
 	
 	public int getFileByfileSeq(int f_seq) throws Exception{

@@ -107,24 +107,32 @@
 </body>
 <script>
 
+
    $("#insertBtn").on("click", function() {
-      confirm("멤버들을 생성하시겠습니까?");
+      if(confirm("멤버들을 생성하시겠습니까?") == true){
       location.href = "${pageContext.request.contextPath}/memberList.pm";
+		  
+	   if($(".updateName").length == 1){
+	      $("#updateBtn").attr('hidden',true);
+	      $("#insertBtn").attr('hidden',false);
+	   }else if($(".updateName").length > 1){
+	      $("#updateBtn").attr('hidden',false);
+	      $("#insertBtn").attr('hidden',true);   
+	   }
+	   }else { 
+	      location.reload(true);
+	   }
    });
-   if($(".updateName").length == 1){
-      $("#updateBtn").attr('hidden',true);
-      $("#insertBtn").attr('hidden',false);
-   }else if($(".updateName").length > 1){
-      $("#updateBtn").attr('hidden',false);
-      $("#insertBtn").attr('hidden',true);   
-   }
    console.log($(".updateName").length);
    $("#updateBtn").on("click", function() {
-      confirm("멤버들을 추가하시겠습니까?");
+      if(confirm("멤버들을 추가하시겠습니까?") == true){
       location.href = "${pageContext.request.contextPath}/updateList.pm";
+      }else {     
+         location.reload(true);
+      }
    });
    $(".deleteBtn").on("click", function() {
-      comfirm("삭제하시겠습니까?");
+      if(comfirm("삭제하시겠습니까?") == true){
       $.ajax({
          url : "${pageContext.request.contextPath}/delete.pm",
          type : "post",
@@ -139,9 +147,12 @@
             alert("삭제에 실패하셨습니다.");
          }
       })
+      }else { 
+         location.reload(true);
+      }
    });
    $(".selfoutBtn").on("click", function() {
-      confirm("삭제하시겠습니까?");
+      if(confirm("삭제하시겠습니까?") == true){
       $.ajax({
          url : "${pageContext.request.contextPath}/delete.pm",
          type : "post",
@@ -156,6 +167,9 @@
             alert("삭제에 실패하셨습니다.");
          }
       })
+      }else {
+         location.reload(true);
+      }
    });
    
 </script>
