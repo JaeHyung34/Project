@@ -50,16 +50,9 @@ html, body {
    margin: 40px;
 }
 
-<<<<<<< HEAD
-
- #navBar{
-    margin-top: 86px;
- }	
-=======
 #navBar{
-		margin-top: 91px;
+      margin-top: 91px;
 }
->>>>>>> 41126fc93e71a6c7297384ce025dd4e52498e70c
 .fc-title{
     font-weight: bold;
     white-space: normal;
@@ -72,16 +65,11 @@ html, body {
       width: 52px;
       margin-left : 5px;
 }
-#high, #mid, #low, #highView, #midView, #lowView{
-		width: 52px;
-		margin-left : 5px;
-}
 </style>
 <body id="page-top">
          <!-- 메인 콘텐츠 시작 부분 -->
 <!-- 게시판 네비 시작 -->
 <ul class="nav nav-tabs" id="navBar">
-<<<<<<< HEAD
    <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">일정</a>
       <div class="dropdown-menu">
@@ -95,23 +83,7 @@ html, body {
    <li class="nav-item">
       <a class="nav-link text-dark" href="${pageContext.request.contextPath}/list.pm">멤버</a>
    </li>
-=======
-	<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">일정</a>
-		<div class="dropdown-menu">
-			<a class="dropdown-item" href="${pageContext.request.contextPath}/viewTask.pt" aria-selected="true">일정 게시판</a>
-			<a class="dropdown-item" href="${pageContext.request.contextPath}/task/viewCalendar.jsp">일정 캘린더</a>
-		</div>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link text-dark" href="${pageContext.request.contextPath}/list.file">파일</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link text-dark" href="${pageContext.request.contextPath}/list.pm">멤버</a>
-	</li>
->>>>>>> 41126fc93e71a6c7297384ce025dd4e52498e70c
 </ul>
-<!-- 게시판 네비 끝 -->
 <!-- 게시판 네비 끝 -->
 <!-- 캘린더 div -->
    <div id='calendar'></div>

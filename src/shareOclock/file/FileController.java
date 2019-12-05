@@ -22,6 +22,8 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import shareOclock.proMember.ProMemberDAO;
+
 
 
 @WebServlet("*.file")
@@ -42,7 +44,9 @@ public class FileController extends HttpServlet {
 		try {
 			if(cmd.contentEquals("/upload.file")) {
 				System.out.println("upload.file에 도착했나요?");
-//				int pro_seq = (int)request.getSession().getAttribute("projectInfo");
+				int pro_seq = (int)request.getSession().getAttribute("projectInfo");
+				String pm_nickname = (String)request.getSession().getAttribute("loginInfo");
+				ProMemberDAO.getInstance().isValidMember(pro_seq, pm_nickname);
 				String uploadPath = request.getServletContext().getRealPath("/files"); //파일경로를 알아야한다. 뒤에 붙이는기능을하기 때문에 /files를 붙인다. //getServletContext() : ServletContainer의 맥락 환경정보 관리 인스턴스
 				//client가 경로를 보내고 서버가 가져와 db에 경로를 저장하기 위해 uploadPath 구함
 				File uploadFilePath = new File(uploadPath);
@@ -89,15 +93,13 @@ public class FileController extends HttpServlet {
 							String uploadedFileName = System.currentTimeMillis() + fileExt;
 							System.out.println(fileExt);
 							System.out.println(uploadedFileName);
-							
 							File uploadedFile = new File(uploadPath+"/"+uploadedFileName);
 							//contextRootPath + "/files/"
 							item.write(uploadedFile);
 							System.out.println("uploadedFile:"+uploadedFile);
 							System.out.println("uploadedFile.getPath():"+uploadedFile.getPath()); //db에저장된 경로?
 							item.delete();
-							String f_writer = "jin";
-							FilesDTO dto = new FilesDTO(0,uploadedFileName,fileName,null,f_writer,0,1);
+							FilesDTO dto = new FilesDTO(0,uploadedFileName,fileName,null,pm_nickname,0,pro_seq);
 							int result = FilesDAO.getInstance().insert(dto);
 							jso.addProperty("fileName",uploadedFileName);										
 						}
@@ -108,12 +110,18 @@ public class FileController extends HttpServlet {
 				}
 			}else if(cmd.contentEquals("/list.file")) {
 				System.out.println("list.file에 도착했나요?");
+				int pro_seq = (int)request.getSession().getAttribute("projectInfo");
+				String pm_nickname = (String)request.getSession().getAttribute("loginInfo");
+				ProMemberDAO.getInstance().isValidMember(pro_seq, pm_nickname);
 				List<FilesDTO> list = FilesDAO.getInstance().getAllFiles();
 				request.setAttribute("list", list);
 				request.getRequestDispatcher("file/list.jsp").forward(request, response);
 				System.out.println("도착완료");
 			}else if(cmd.contentEquals("/download.file")) {
 				System.out.println("/download.file에 들어왔나요?");
+				int pro_seq = (int)request.getSession().getAttribute("projectInfo");
+				String pm_nickname = (String)request.getSession().getAttribute("loginInfo");
+				ProMemberDAO.getInstance().isValidMember(pro_seq, pm_nickname);
 				String fileName = request.getParameter("fileName");
 				System.out.println(fileName);
 				String path = request.getServletContext().getRealPath("/files");//getServletContext() -> application
@@ -139,10 +147,17 @@ public class FileController extends HttpServlet {
 					sos.flush();	
 				}
 			}else if(cmd.contentEquals("/downloadCount.file")) {				
-				System.out.println("/downloadCount.file에 들어왔나요?");
-				int f_seq = Integer.parseInt(request.getParameter("f_seq"));
+				int pro_seq = (int)request.getSession().getAttribute("projectInfo");
+				System.out.println("/downloadCount.file에 들어왔나요?  "+pro_seq);
+				String pm_nickname = (String)request.getSession().getAttribute("loginInfo");
+			//	ProMemberDAO.getInstance().isValidMember(pro_seq, pm_nickname);
+				String seq = request.getParameter("f_seq");
+				int f_seq = 0;
+				if(seq != null) {
+					f_seq = Integer.parseInt(seq);
+				}
+				System.out.println("/downloadCount.file에 f_seq  "+f_seq);
 				int downloadCount = FilesDAO.getInstance().downloadCount(f_seq);
-
 				System.out.println(downloadCount);
 				if(downloadCount > 0) {
 					JsonObject jso = new JsonObject();
@@ -161,6 +176,9 @@ public class FileController extends HttpServlet {
 			}
 			else if(cmd.contentEquals("/delete.file")) {
 				System.out.println("delete.file에 도착했나요?");
+				int pro_seq = (int)request.getSession().getAttribute("projectInfo");
+				String pm_nickname = (String)request.getSession().getAttribute("loginInfo");
+				ProMemberDAO.getInstance().isValidMember(pro_seq, pm_nickname);
 				try {
 					String ca = request.getParameter("checkArray");
 					//리스트들의 f_seq들을 찾아 삭제 리스트들의 숫자를 꺼내서 하나하나 삭제해야한다. 

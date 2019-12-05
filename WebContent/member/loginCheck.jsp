@@ -18,11 +18,20 @@
 			</script>
 		</c:when>
 		<c:otherwise>
-			<script>
-				alert( "로그인이 실패했습니다. 이메일과 비밀번호를 확인해주세요"); 
-				location.href="../index.jsp";
-			</script>
-		
+		      <c:choose>
+			      <c:when test="${ManagerInfo != null}">
+				      	<script>
+				        location.href="${pageContext.request.contextPath}/memberList.admin";
+				      	</script>
+			        </c:when>
+			      <c:otherwise>
+				      <script>
+						alert( "로그인이 실패했습니다. 이메일과 비밀번호를 확인해주세요"); 
+						location.href="../index.jsp";
+					</script>
+			      </c:otherwise>
+		    </c:choose>
+
 		</c:otherwise>
 	</c:choose>
 

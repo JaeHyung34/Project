@@ -40,10 +40,10 @@
 </head>
 
 <body id="page-top">
-<c:choose>
+	<c:choose>
       <c:when test="${ManagerInfo == null}">
          <script>
-         history.back();
+			location.href="../index.jsp";
          </script>
       </c:when>
     

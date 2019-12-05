@@ -3,7 +3,6 @@ package shareOclock.message;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
-import configuration.Configuration;
 
 public class MessageDTO {
 	private int message_seq;
@@ -67,9 +66,12 @@ public class MessageDTO {
 	}
 
 
+	public String getRealMessage_contents() {
+		return this.message_contents;
+	}
 	public String getMessage_contents() {
-		if (this.message_contents.length() > 99)
-			return this.message_contents.substring(0, 100) + "...";
+		if (this.message_contents.length() > 50)
+			return this.message_contents.substring(0, 50) + "...";
 		return message_contents;
 	}
 
@@ -107,38 +109,4 @@ public class MessageDTO {
 	public void setMessage_read(String message_read) {
 		this.message_read = message_read;
 	}
-
-	
-	
-
-	public static void main(String[] args) {
-
-		int articlesPerPage = 10;
-		int naviPerPage = 10;
-		int totalArticles = 999;
-		int entryPage = 10;
-
-		int totalPage = totalArticles / articlesPerPage;
-		if (totalArticles % articlesPerPage != 0)
-			totalPage += 1;
-
-		if (entryPage > totalPage)
-			entryPage = totalPage;
-		if (entryPage < 1) 
-			entryPage = 1;
-
-		int startNavi = (entryPage - 1) / 10 * naviPerPage + 1;
-		int lastNavi = startNavi + naviPerPage - 1;
-
-		StringBuilder sb = new StringBuilder();
-		if (startNavi != 1)
-			sb.append("< ");
-		for (int i = startNavi; i <= lastNavi; i++) {
-			sb.append(i + " ");
-		}
-		if (lastNavi != totalPage)
-			sb.append(">");
-		System.out.println(sb);
-	}
 }
-

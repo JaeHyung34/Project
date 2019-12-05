@@ -47,20 +47,19 @@
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 
 <style>
-.todaycounter, .totalcounter, .projectcounter, .sharecounter {
-	font-size: 50px;
-	font-weight: 500;
-	width: 200px;
-	height: 200px;
-	vertical-align: middle;
-	line-height: 100px;
-	text-align: center;
-	padding-top: 45px;
-}
-
-.card-title {
-	text-align: center;
-}
+	.todaycounter, .totalcounter, .projectcounter, .sharecounter {
+		font-size: 50px;
+		font-weight: 500;
+		width: 200px;
+		height: 200px;
+		vertical-align: middle;
+		line-height: 100px;
+		text-align: center;
+		padding-top: 45px;
+	}x
+	.card-title {
+		text-align: center;
+	}
 </style>
 
 </head>

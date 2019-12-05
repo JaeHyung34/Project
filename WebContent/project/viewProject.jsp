@@ -9,7 +9,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <style>
-	 #newTask{
+    #newTask{
         float: left;
         display:inline-block;
         border: 1px solid black;
@@ -32,13 +32,13 @@
     }
 </style>
 <body>
-	<div id="newTask">
+   <div id="newTask">
         <button type="button" id="createTask" onclick="open_layer();">+</button>
     </div>
      <script>
-     	function open_layer(){
-     		location.href = "${pageContext.request.contextPath}/task/createTask.jsp";
-     	}
+        function open_layer(){
+           location.href = "${pageContext.request.contextPath}/task/createTask.jsp";
+        }
      </script>
 </body>
 </html>

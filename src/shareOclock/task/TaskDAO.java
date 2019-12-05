@@ -25,7 +25,6 @@ public class TaskDAO {
       return Configuration.dbs.getConnection();
    }
 
-<<<<<<< HEAD
    public int insertTask(TaskDTO dto) throws Exception{
       String sql = "insert into tb_project_task values(pt_seq.nextval,?,?,?,?,TO_DATE(?, 'YYYY-MM-DD'),TO_DATE(?, 'YYYY-MM-DD'),?)";
       try(Connection con = Configuration.dbs.getConnection();
@@ -42,24 +41,6 @@ public class TaskDAO {
          return result;
       }
    }
-=======
-	public int insertTask(TaskDTO dto) throws Exception{
-		String sql = "insert into tb_project_task values(pt_seq.nextval,?,?,?,?,TO_DATE(?, 'YYYY-MM-DD'),TO_DATE(?, 'YYYY-MM-DD'),?)";
-		try(Connection con = Configuration.dbs.getConnection();
-			PreparedStatement pstat = con.prepareStatement(sql);){
-			pstat.setString(1, dto.getPt_writer());
-			pstat.setString(2, dto.getPt_priority());
-			pstat.setString(3, dto.getPt_title());
-			pstat.setString(4, dto.getPt_contents());
-			pstat.setString(5, dto.getPt_startDate());
-			pstat.setString(6, dto.getPt_endDate());
-			pstat.setInt(7, dto.getPro_seq());
-			int result = pstat.executeUpdate();
-			con.commit();
-			return result;
-		}
-	}
->>>>>>> 41126fc93e71a6c7297384ce025dd4e52498e70c
 
    public List<TaskDTO> selectAll(int pro_seq) throws Exception{
       String sql = "select * from tb_project_task where pro_seq=? order by pt_startDate";

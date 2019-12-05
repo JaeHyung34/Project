@@ -35,30 +35,19 @@
    rel="stylesheet">
 
 
-
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript" ></script>
-<<<<<<< HEAD
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" type="text/javascript" ></script>   
-=======
-<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" type="text/javascript" ></script>	
->>>>>>> 41126fc93e71a6c7297384ce025dd4e52498e70c
 <script
    src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
 <script
-<<<<<<< HEAD
    src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
    
-=======
-	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
-	
->>>>>>> 41126fc93e71a6c7297384ce025dd4e52498e70c
 
 <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" type="text/css"/> -->
 <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/js/dataTables.semanticui.min.js" type="text/css"/> -->
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js" type="text/css"/> -->
 <!-- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js" type="text/css"/> -->
 <!-- <link rel="stylesheet" -->
-<<<<<<< HEAD
 <!--    href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css"> -->
 <!-- <link rel="stylesheet" -->
 <!--    href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css"> -->
@@ -69,23 +58,10 @@
 <!-- <link -->
 <!--    href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" -->
 <!--    rel="stylesheet"> -->
-=======
-<!-- 	href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css"> -->
-<!-- <link rel="stylesheet" -->
-<!-- 	href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css"> -->
-<!-- <link rel="stylesheet" -->
-<!-- 	href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.css"> -->
-<!-- <link rel="stylesheet" -->
-<!-- 	href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/themes/material_green.css"> -->
-<!-- <link -->
-<!-- 	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" -->
-<!-- 	rel="stylesheet"> -->
->>>>>>> 41126fc93e71a6c7297384ce025dd4e52498e70c
 
 <!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript" ></script> -->
 <!-- <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" type="text/javascript" ></script> -->
 <!-- <script -->
-<<<<<<< HEAD
 <!--    src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script> -->
 <!-- <script -->
 <!--    src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script> -->
@@ -107,7 +83,7 @@
    }
    #navBar{
       margin-top: 86px;
-   }	
+   }
    #navBar li a:hover{
       color: red;
    }
@@ -129,58 +105,12 @@
       margin-left : 5px;
    }
 </style>   
-=======
-<!-- 	src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script> -->
-<!-- <script -->
-<!-- 	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script> -->
-
-<style type="text/css">
-	body{
-		height: 100%;
-		overflow: hidden;
-	}
-	.container{
-		margin-top: 30px;
-	}
-	#titleTask{
-		cursor:pointer;
-	}
-	.btns{
-		text-align: right;
-		margin: 10px;
-	}
-	#navBar{
-		margin-top: 93px;
-	}
-	#navBar li a:hover{
-		color: red;
-	}
-	#addModal{
-		width: 1170px;
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-	}
- 	div.container {
-        width: 80%;
-    }
-    .filterPad{
-		padding-top:15px;
-	}
-	#high, #mid, #low, #highView, #midView, #lowView{
-		width: 52px;
-		margin-left : 5px;
-	}
-</style>	
->>>>>>> 41126fc93e71a6c7297384ce025dd4e52498e70c
 </head>
 
 <body id="page-top">
       <!-- 메인 콘텐츠 시작 부분 -->
 <!-- 게시판 네비 시작 -->
 <ul class="nav nav-tabs" id="navBar">
-<<<<<<< HEAD
    <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">일정</a>
       <div class="dropdown-menu">
@@ -194,21 +124,6 @@
    <li class="nav-item">
       <a class="nav-link text-dark" href="${pageContext.request.contextPath}/list.pm">멤버</a>
    </li>
-=======
-	<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">일정</a>
-		<div class="dropdown-menu">
-			<a class="dropdown-item" href="${pageContext.request.contextPath}/viewTask.pt" aria-selected="true">일정 게시판</a>
-			<a class="dropdown-item" href="${pageContext.request.contextPath}/task/viewCalendar.jsp">일정 캘린더</a>
-		</div>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link text-dark" href="${pageContext.request.contextPath}/list.file">파일</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link text-dark" href="${pageContext.request.contextPath}/list.pm">멤버</a>
-	</li>
->>>>>>> 41126fc93e71a6c7297384ce025dd4e52498e70c
 </ul>
 <!-- 게시판 네비 끝 -->
 <!-- 일정 게시판 화면 시작-->
@@ -390,7 +305,6 @@
    <!-- 일정 수정 modal 끝 -->
    <!-- 메인 콘텐츠 끝 -->
 
-<<<<<<< HEAD
       </div>
    </div>
    
@@ -418,35 +332,6 @@
          }).draw();
    });
    
-=======
-		</div>
-	</div>
-	
-	<script>
-	
-	jQuery(function($){
-		var t = $("#tableTask").DataTable({
-// 			"responsive": {
-// 		        details: false
-// 		    },
-		    "info" : false,
-			"paging" : true, // 페이징 
-			"filter" : true, // 검색 기능 부여
-			"lengthChange" : true, //...
-			"scrollX": false, //x축 스크롤 생성 x
-			"scrollCollapse": true,
-			"order": [[ 1, 'asc' ]], // 인덱스 부여
-// 			"autowidth": true,
-// 			dom : '<"toolbar"><"filterPad"f>lpit<"floatRight"B><"clear">'
-		});
-	  	t.on( 'order.dt search.dt', function () { // 일정 인덱스 부여
-	        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-	            cell.innerHTML = i+1;
-	        });
-   		}).draw();
-	});
-	
->>>>>>> 41126fc93e71a6c7297384ce025dd4e52498e70c
 // 일정 보기 modal 관련 script
    $(".pt_title").on("click", function(){
       

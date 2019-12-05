@@ -96,7 +96,7 @@ public class FilesDAO {
 	public int delete(int f_seq) throws Exception{
 		String sql = "delete from tb_file where f_seq = ?";
 		try(
-				Connection con = Configuration.dbs.getConnection();
+				Connection con = getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);
 				){
 			pstat.setInt(1, f_seq);
